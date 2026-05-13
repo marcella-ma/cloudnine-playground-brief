@@ -6,27 +6,45 @@
 <title>Chapter 01 — Playground · Master Campaign Brief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf7f3;
-    --bg-warm: #f4ede1;
-    --paper: #ffffff;
-    --ink: #1a1a1a;
-    --ink-soft: #3a3a3a;
-    --mute: #76716b;
-    --line: #e0dad0;
-    --line-dark: #c8c0b3;
+    /* Brand Neutrals */
+    --ink: #21201C;
+    --ink-2: #63635E;
+    --ink-3: #82827C;
+    --line: #CFCECA;
+    --bg-soft: #F1F0EF;
+    --bg: #F9F9F8;
+    --paper: #FFFFFF;
 
-    /* Hoodie palette */
-    --mesa-rose: #c89090;
-    --riviera: #8aa5b3;
-    --shale: #756e6a;
-    --pale-olive: #a3a585;
-    --soft-glow: #f0e8dc;
+    /* Brand Blues */
+    --blue-50: #E6F4FE;
+    --blue-100: #C2E5FF;
+    --blue-300: #8EC8F6;
+    --blue-deep: #225376;
+    --navy: #08141D;
 
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Complementary (Playground pops) */
+    --yellow: #FFD700;
+    --yellow-soft: #FFEE9C;
+    --green: #82BA89;
+    --green-soft: #E2F0BD;
+    --peach: #FFDFB5;
+    --lilac: #B09EC0;
+    --pink-soft: #ECD8E3;
+    --pink: #E54D2E;
+
+    /* Hoodie Pantone colors */
+    --mesa-rose: #B07A7E;
+    --riviera: #5F7FA5;
+    --shale: #4A3F3D;
+    --pale-olive: #C2B589;
+
+    /* Type */
+    --display: 'Poppins', system-ui, sans-serif;
+    --body: 'Poppins', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,132 +54,198 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--body);
+    font-weight: 500;
     font-size: 15px;
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+  }
+
+  /* ============ TOP BAR ============ */
+  .top-bar {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-bar-left { display: flex; gap: 24px; align-items: center; }
+
+  .cloud-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .cloud-mark::before {
+    content: "☁";
+    font-size: 18px;
   }
 
   /* ============ HEADER ============ */
-  .top-banner {
-    background: var(--ink);
-    color: var(--bg);
-    padding: 8px 32px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 500;
+  .header {
+    background: var(--blue-50);
+    padding: 64px 48px 0;
+    position: relative;
+    overflow: hidden;
   }
 
-  .header {
-    padding: 56px 48px 32px;
-    border-bottom: 1px solid var(--line);
-    background: var(--bg);
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    width: 120px;
+    height: 80px;
+    background: radial-gradient(ellipse, var(--blue-100) 30%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 200px;
+    width: 200px;
+    height: 100px;
+    background: radial-gradient(ellipse, var(--blue-100) 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.5;
   }
 
   .header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 48px;
-    align-items: end;
+    position: relative;
+    z-index: 2;
   }
 
-  .header-left { }
-
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.2em;
+  .chapter-mark {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 14px;
+    color: var(--ink-2);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chapter-mark::before {
+    content: "01";
+    background: var(--ink);
+    color: var(--bg);
+    padding: 4px 10px;
+    border-radius: 100px;
     font-weight: 500;
   }
 
   h1 {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(38px, 5.5vw, 64px);
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(56px, 9vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 32px;
   }
 
-  h1 em {
-    font-style: italic;
-    font-weight: 300;
+  h1 .play {
+    display: inline-block;
+    transform: rotate(-3deg);
+  }
+
+  h1 .ground {
+    background: var(--yellow);
+    padding: 0 12px;
+    display: inline-block;
+    transform: rotate(1deg);
+    box-shadow: 4px 4px 0 var(--ink);
   }
 
   .header-meta {
     display: flex;
-    gap: 32px;
-    align-items: flex-end;
-    padding-bottom: 4px;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
   }
 
   .meta-item {
+    font-family: var(--mono);
     font-size: 12px;
-    line-height: 1.4;
   }
 
   .meta-label {
-    color: var(--mute);
-    letter-spacing: 0.1em;
+    color: var(--ink-2);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-bottom: 6px;
     font-size: 10px;
-    margin-bottom: 4px;
   }
 
   .meta-value {
-    font-family: var(--serif);
-    font-size: 16px;
-    font-weight: 400;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
   }
 
   /* Color strip */
   .color-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 32px;
-    border-top: 1px solid var(--line);
+    gap: 0;
+    margin: 0 -48px;
+    background: var(--ink);
   }
 
   .color-cell {
-    padding: 20px 24px 18px;
-    border-right: 1px solid var(--line);
+    padding: 24px 28px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    color: var(--bg);
   }
   .color-cell:last-child { border-right: none; }
 
   .swatch {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     flex-shrink: 0;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
   }
   .swatch.rose { background: var(--mesa-rose); }
   .swatch.riv { background: var(--riviera); }
   .swatch.shale { background: var(--shale); }
   .swatch.olive { background: var(--pale-olive); }
 
-  .color-info { }
   .color-name {
-    font-family: var(--serif);
-    font-size: 15px;
-    line-height: 1.1;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
     margin-bottom: 2px;
   }
-  .color-code {
+
+  .color-pantone {
+    font-family: var(--mono);
     font-size: 10px;
-    color: var(--mute);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
   }
 
   /* ============ TAB NAV ============ */
@@ -187,21 +271,21 @@
   .tab-btn {
     background: none;
     border: none;
-    padding: 18px 20px;
-    font-family: var(--sans);
+    padding: 18px 18px;
+    font-family: var(--display);
+    font-weight: 600;
     font-size: 13px;
-    color: var(--mute);
+    color: var(--ink-2);
     cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.25s ease;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
     white-space: nowrap;
-    letter-spacing: 0.02em;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .tab-btn:hover {
-    color: var(--ink);
-  }
+  .tab-btn:hover { color: var(--ink); }
 
   .tab-btn.active {
     color: var(--ink);
@@ -209,11 +293,10 @@
   }
 
   .tab-num {
-    font-family: var(--serif);
+    font-family: var(--mono);
     font-size: 11px;
-    margin-right: 6px;
-    color: var(--mute);
-    font-style: italic;
+    color: var(--ink-3);
+    font-weight: 400;
   }
 
   .tab-btn.active .tab-num { color: var(--ink); }
@@ -222,12 +305,12 @@
   main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 56px 48px 80px;
+    padding: 64px 48px 80px;
   }
 
   .panel {
     display: none;
-    animation: fadeIn 0.4s ease;
+    animation: fadeIn 0.3s ease;
   }
 
   .panel.active { display: block; }
@@ -239,214 +322,248 @@
 
   /* Section heading */
   .section-head {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
     padding-bottom: 24px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 2px solid var(--ink);
   }
 
-  .section-eyebrow {
+  .section-num {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--mute);
+    color: var(--ink-2);
     margin-bottom: 12px;
-    font-weight: 500;
   }
 
   h2 {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 42px;
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-    font-variation-settings: 'opsz' 144, 'SOFT' 60;
-  }
-
-  h2 em {
-    font-style: italic;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
   }
 
   h3 {
-    font-family: var(--serif);
-    font-weight: 400;
+    font-family: var(--display);
+    font-weight: 700;
     font-size: 22px;
     line-height: 1.2;
     margin-bottom: 12px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    letter-spacing: -0.01em;
   }
 
   h4 {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--mute);
+    color: var(--ink-2);
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
 
-  p { color: var(--ink-soft); }
+  p { color: var(--ink); }
 
   /* ============ OVERVIEW ============ */
   .overview-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 56px;
+    gap: 40px;
     margin-bottom: 48px;
   }
 
   .concept-block { }
 
   .concept-block p {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.55;
+    margin-bottom: 16px;
     color: var(--ink);
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
-    margin-bottom: 20px;
   }
 
-  .concept-block p:first-letter {
-    font-family: var(--serif);
-    font-size: 42px;
-    line-height: 1;
-    float: left;
-    margin: 6px 8px 0 0;
-    font-variation-settings: 'opsz' 144, 'SOFT' 80;
+  .concept-block p:last-child {
+    background: var(--yellow-soft);
+    padding: 24px 28px;
+    border-left: 4px solid var(--ink);
+    margin-top: 24px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.4;
   }
 
   .product-card {
     background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 28px;
-    border-radius: 4px;
+    border: 2px solid var(--ink);
+    padding: 32px 28px;
+    position: relative;
   }
 
-  .product-card h4 {
-    margin-bottom: 16px;
+  .product-card::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    background: var(--yellow);
+    border-radius: 50%;
   }
 
-  .product-card .product-name {
-    font-family: var(--serif);
-    font-size: 22px;
-    margin-bottom: 8px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+  .product-card h4 { margin-bottom: 12px; }
+
+  .product-name {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.1;
+    margin-bottom: 12px;
   }
 
   .product-card p {
-    font-size: 13px;
-    margin-bottom: 16px;
-    color: var(--mute);
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--ink-2);
   }
 
   .product-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12px;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 2px;
-    letter-spacing: 0.02em;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 16px;
+    border-radius: 100px;
+    transition: all 0.2s ease;
   }
 
-  .product-link:hover { color: var(--mute); border-color: var(--mute); }
+  .product-link:hover { background: var(--blue-deep); }
 
-  /* Resource links */
+  /* Quick links */
   .resources {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    margin-top: 16px;
   }
 
   .resource {
     background: var(--paper);
     border: 1px solid var(--line);
     padding: 20px;
-    border-radius: 4px;
     text-decoration: none;
     color: var(--ink);
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    min-height: 110px;
+    gap: 10px;
+    min-height: 120px;
+    border-radius: 4px;
   }
 
   .resource:hover {
     border-color: var(--ink);
-    transform: translateY(-2px);
+    background: var(--blue-50);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink);
   }
 
   .resource-icon {
     width: 24px;
     height: 24px;
-    color: var(--mute);
+    color: var(--ink-2);
   }
 
   .resource-title {
-    font-family: var(--serif);
-    font-size: 16px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 15px;
     line-height: 1.2;
   }
 
   .resource-status {
-    font-size: 10px;
-    color: var(--mute);
-    letter-spacing: 0.12em;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-top: auto;
   }
 
   /* ============ STRATEGY ============ */
-  .strategy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 32px;
-    border-radius: 4px;
-  }
-
-  .card.full {
-    grid-column: 1 / -1;
-  }
-
   .objective-card {
     background: var(--ink);
     color: var(--bg);
     padding: 40px 36px;
     border-radius: 4px;
-    grid-column: 1 / -1;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .objective-card::before {
+    content: "🎯";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
   }
 
   .objective-card h4 {
-    color: var(--bg-warm);
+    color: var(--blue-100);
     margin-bottom: 14px;
   }
 
   .objective-card p {
-    font-family: var(--serif);
-    font-size: 24px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 22px;
     line-height: 1.4;
-    font-weight: 300;
     color: var(--bg);
-    font-variation-settings: 'opsz' 36, 'SOFT' 60;
+    max-width: 90%;
   }
 
-  .goal-list {
-    list-style: none;
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 28px;
+    border-radius: 4px;
+  }
+
+  .card.accent {
+    background: var(--green-soft);
+    border-color: var(--green);
+  }
+
+  .card.full { grid-column: 1 / -1; }
+
+  .retention-badge {
+    display: inline-block;
+    background: var(--yellow);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .goal-list { list-style: none; }
 
   .goal-list li {
-    padding: 14px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--line);
     font-size: 14px;
     display: flex;
@@ -458,12 +575,9 @@
   .goal-list li:first-child { padding-top: 0; }
 
   .goal-list li::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--ink);
-    margin-top: 8px;
+    content: "→";
+    color: var(--ink);
+    font-weight: 700;
     flex-shrink: 0;
   }
 
@@ -471,7 +585,7 @@
   .audience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
 
   .audience-card {
@@ -483,41 +597,53 @@
     flex-direction: column;
   }
 
-  .audience-card .audience-tier {
-    padding: 12px 24px;
+  .audience-tier {
+    padding: 14px 24px;
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--mute);
+    color: var(--ink-2);
     border-bottom: 1px solid var(--line);
-    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
+  .audience-card.primary {
+    background: var(--blue-50);
+    border-color: var(--blue-300);
+  }
   .audience-card.primary .audience-tier {
     background: var(--ink);
     color: var(--bg);
+    border-bottom-color: var(--ink);
   }
 
-  .audience-card.secondary .audience-tier {
-    background: var(--bg-warm);
-    color: var(--ink);
+  .audience-card.secondary {
+    background: var(--peach);
+    border-color: #f0c89c;
   }
 
-  .audience-card.tertiary .audience-tier {
-    background: var(--bg);
+  .audience-card.tertiary {
+    background: var(--pink-soft);
+    border-color: #d9b9c5;
   }
 
   .audience-body {
     padding: 24px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .audience-title {
-    font-family: var(--serif);
+    font-family: var(--display);
+    font-weight: 700;
     font-size: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     line-height: 1.2;
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    letter-spacing: -0.01em;
   }
 
   .audience-traits {
@@ -527,77 +653,76 @@
 
   .audience-traits li {
     font-size: 13px;
-    color: var(--ink-soft);
+    color: var(--ink);
     padding: 4px 0;
-    padding-left: 16px;
+    padding-left: 18px;
     position: relative;
   }
 
   .audience-traits li::before {
-    content: "—";
+    content: "·";
     position: absolute;
-    left: 0;
-    color: var(--mute);
+    left: 6px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
   }
 
   .persona {
-    background: var(--bg);
+    background: rgba(255,255,255,0.6);
     padding: 18px;
     border-radius: 4px;
     margin-top: auto;
+    border: 1px solid rgba(33,32,28,0.1);
   }
 
   .persona-label {
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mute);
+    color: var(--ink-2);
     margin-bottom: 8px;
-    font-weight: 500;
   }
 
   .persona-text {
     font-size: 13px;
     line-height: 1.5;
-    color: var(--ink-soft);
-    font-style: italic;
+    color: var(--ink);
   }
 
   /* ============ CREATIVE ============ */
   .creative-story {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 48px;
+    background: var(--yellow-soft);
+    border: 2px solid var(--ink);
+    padding: 40px;
     border-radius: 4px;
     margin-bottom: 32px;
     position: relative;
   }
 
   .creative-story::before {
-    content: """;
+    content: "✷";
     position: absolute;
     top: 16px;
-    left: 24px;
-    font-family: var(--serif);
-    font-size: 80px;
-    color: var(--line-dark);
-    line-height: 1;
+    left: 16px;
+    font-size: 20px;
+    color: var(--ink);
   }
 
   .creative-story p {
-    font-family: var(--serif);
-    font-size: 20px;
-    line-height: 1.6;
-    font-weight: 300;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.5;
     color: var(--ink);
-    padding-left: 40px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 60;
+    padding-left: 28px;
   }
 
   .creative-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .kw-card {
@@ -615,14 +740,16 @@
   }
 
   .kw {
-    padding: 7px 14px;
-    background: var(--bg-warm);
+    padding: 8px 16px;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-300);
     border-radius: 100px;
     font-size: 13px;
-    font-family: var(--serif);
-    font-style: italic;
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    font-weight: 600;
+    color: var(--ink);
   }
+
+  .kw.tone { background: var(--green-soft); border-color: var(--green); }
 
   .stance {
     background: var(--paper);
@@ -640,34 +767,55 @@
   }
 
   .stance-col h5 {
-    font-family: var(--serif);
-    font-size: 15px;
-    margin-bottom: 8px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .stance-col.are h5 { color: var(--ink); }
-  .stance-col.arent h5 { color: var(--mute); text-decoration: line-through; }
+  .stance-col.are h5::before { content: "✓"; color: var(--green); }
+  .stance-col.arent h5 { color: var(--ink-3); }
+  .stance-col.arent h5::before { content: "✕"; color: var(--pink); }
 
-  .stance-list {
-    list-style: none;
-  }
+  .stance-list { list-style: none; }
   .stance-list li {
     font-size: 14px;
-    padding: 4px 0;
-    color: var(--ink-soft);
+    padding: 6px 0;
+    color: var(--ink);
+    border-bottom: 1px solid var(--bg-soft);
+  }
+  .stance-list li:last-child { border-bottom: none; }
+  .stance-col.arent .stance-list li {
+    color: var(--ink-3);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
   }
 
   /* ============ OFFER ============ */
+  .offer-intro {
+    background: var(--blue-50);
+    border-left: 4px solid var(--blue-deep);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .offer-intro h4 { color: var(--blue-deep); margin-bottom: 8px; }
+  .offer-intro p { font-size: 14px; }
+
   .offer-tiers {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
   .tier {
     background: var(--paper);
-    border: 1px solid var(--line);
+    border: 2px solid var(--ink);
     border-radius: 4px;
     padding: 32px 28px;
     display: flex;
@@ -675,73 +823,84 @@
     position: relative;
   }
 
-  .tier.t1 { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-  .tier.t2 { background: var(--bg-warm); border-color: var(--line-dark); }
-
-  .tier-num {
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
-    font-style: italic;
+  .tier.t1 {
+    background: var(--ink);
+    color: var(--bg);
+    transform: rotate(-1deg);
+  }
+  .tier.t2 {
+    background: var(--peach);
+    transform: rotate(0.5deg);
+  }
+  .tier.t3 {
+    background: var(--bg-soft);
+    transform: rotate(-0.5deg);
   }
 
-  .tier.t1 .tier-num { color: var(--bg-warm); }
-  .tier.t2 .tier-num { color: var(--shale); }
-  .tier.t3 .tier-num { color: var(--mute); }
+  .tier-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    color: var(--ink-2);
+  }
+
+  .tier.t1 .tier-num { color: var(--blue-100); }
 
   .tier-name {
-    font-family: var(--serif);
+    font-family: var(--display);
+    font-weight: 800;
     font-size: 24px;
-    line-height: 1.1;
+    line-height: 1.05;
     margin-bottom: 16px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    letter-spacing: -0.01em;
   }
 
   .tier-desc {
     font-size: 14px;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    flex: 1;
   }
 
-  .tier.t1 .tier-desc { color: var(--bg-warm); }
+  .tier.t1 .tier-desc { color: var(--bg-soft); }
 
   .tier-perk {
     margin-top: auto;
-    padding-top: 16px;
-    border-top: 1px solid currentColor;
-    font-size: 12px;
-    letter-spacing: 0.05em;
+    padding: 10px 14px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 500;
-    opacity: 0.85;
+    text-align: center;
+    box-shadow: 2px 2px 0 var(--ink);
   }
 
-  .tier.t1 .tier-perk { border-color: rgba(244,237,225,0.2); }
-  .tier.t2 .tier-perk { border-color: var(--line-dark); }
-  .tier.t3 .tier-perk { border-color: var(--line); }
+  .tier.t1 .tier-perk { box-shadow: 2px 2px 0 var(--bg); }
 
   .offer-note {
     margin-top: 32px;
     padding: 24px 28px;
-    background: var(--bg-warm);
-    border-left: 3px solid var(--ink);
+    background: var(--green-soft);
+    border: 1px solid var(--green);
     border-radius: 4px;
   }
 
   .offer-note h5 {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 8px;
-    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 10px;
   }
 
-  .offer-note p {
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
+  .offer-note p { font-size: 14px; line-height: 1.6; }
 
   /* ============ CHANNELS ============ */
   .channels-table {
@@ -754,15 +913,15 @@
   }
 
   .channels-table th {
-    background: var(--bg-warm);
+    background: var(--ink);
+    color: var(--bg);
     text-align: left;
     padding: 14px 24px;
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink);
     font-weight: 500;
-    border-bottom: 1px solid var(--line-dark);
   }
 
   .channels-table td {
@@ -772,71 +931,67 @@
   }
 
   .channels-table tr:last-child td { border-bottom: none; }
-
-  .channels-table tr:hover { background: rgba(240,232,220,0.3); }
+  .channels-table tr:hover { background: var(--blue-50); }
 
   .ch-name {
-    font-family: var(--serif);
-    font-size: 16px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 15px;
   }
 
   .ch-lead {
-    color: var(--mute);
-    font-size: 13px;
-    font-family: var(--serif);
-    font-style: italic;
+    color: var(--ink-2);
+    font-family: var(--mono);
+    font-size: 12px;
   }
 
   /* ============ TIMELINE ============ */
-  .timeline-phases {
-    margin-bottom: 56px;
-  }
+  .timeline-phases { margin-bottom: 48px; }
 
   .phase-row {
     display: grid;
     grid-template-columns: 160px 1fr;
     align-items: stretch;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
 
   .phase-label-col {
-    padding: 20px 24px 20px 0;
+    padding: 22px 24px 22px 0;
     text-align: right;
-    border-right: 1px solid var(--line);
+    border-right: 2px solid var(--ink);
   }
 
   .phase-name {
-    font-family: var(--serif);
-    font-size: 18px;
-    font-weight: 400;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.01em;
   }
 
   .phase-dates {
+    font-family: var(--mono);
     font-size: 11px;
-    color: var(--mute);
+    color: var(--ink-2);
     margin-top: 4px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .phase-bar {
-    padding: 20px 28px;
-    border-left: 4px solid var(--line);
+    padding: 22px 28px;
+    border-left: 6px solid var(--line);
     background: var(--paper);
   }
 
-  .phase-bar.tease { border-left-color: var(--pale-olive); }
-  .phase-bar.reveal { border-left-color: var(--riviera); }
-  .phase-bar.launch { border-left-color: var(--mesa-rose); background: rgba(200,144,144,0.06); }
-  .phase-bar.sustain { border-left-color: var(--shale); }
+  .phase-bar.tease { border-left-color: var(--pale-olive); background: rgba(194,181,137,0.08); }
+  .phase-bar.reveal { border-left-color: var(--riviera); background: rgba(95,127,165,0.08); }
+  .phase-bar.launch { border-left-color: var(--yellow); background: var(--yellow-soft); }
+  .phase-bar.sustain { border-left-color: var(--shale); background: rgba(74,63,61,0.05); }
   .phase-bar.retention { border-left-color: var(--ink); }
 
   .phase-desc {
     font-size: 14px;
-    line-height: 1.6;
-    color: var(--ink-soft);
+    line-height: 1.55;
+    color: var(--ink);
     margin-bottom: 14px;
   }
 
@@ -847,26 +1002,27 @@
   }
 
   .move-tag {
+    font-family: var(--mono);
     font-size: 11px;
-    padding: 5px 11px;
-    background: var(--bg);
+    padding: 5px 12px;
+    background: var(--paper);
     border-radius: 100px;
-    color: var(--ink-soft);
+    color: var(--ink);
     border: 1px solid var(--line);
   }
 
   /* Key dates */
   .key-dates-title {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 300;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 28px;
     margin-bottom: 24px;
-    font-variation-settings: 'opsz' 36, 'SOFT' 50;
+    letter-spacing: -0.01em;
   }
 
   .dates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 12px;
   }
 
@@ -875,30 +1031,38 @@
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .date-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 var(--ink);
   }
 
   .date-card.peak {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
+    background: var(--yellow);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
   }
 
   .date-day {
-    font-family: var(--serif);
+    font-family: var(--display);
+    font-weight: 800;
     font-size: 32px;
-    font-weight: 300;
     letter-spacing: -0.02em;
     line-height: 1;
-    font-variation-settings: 'opsz' 144, 'SOFT' 80;
   }
 
   .date-month {
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-top: 6px;
-    opacity: 0.7;
+    margin-top: 8px;
+    color: var(--ink-2);
   }
+
+  .date-card.peak .date-month { color: var(--ink); }
 
   .date-event {
     font-size: 13px;
@@ -906,35 +1070,44 @@
     line-height: 1.4;
   }
 
-  .date-card.tba .date-day { color: var(--mute); }
+  .date-card.tba .date-day { color: var(--ink-3); }
 
   /* Critical path */
   .critical {
     margin-top: 40px;
     padding: 28px 32px;
-    background: var(--bg-warm);
+    background: var(--pink-soft);
+    border: 2px solid var(--ink);
     border-radius: 4px;
+    position: relative;
+  }
+
+  .critical::before {
+    content: "⚠";
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 22px;
   }
 
   .critical-title {
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--mute);
+    color: var(--ink);
     margin-bottom: 16px;
     font-weight: 500;
   }
 
-  .critical-list {
-    list-style: none;
-  }
+  .critical-list { list-style: none; }
 
   .critical-list li {
     font-size: 14px;
     padding: 10px 0;
     color: var(--ink);
     line-height: 1.5;
-    border-bottom: 1px solid var(--line-dark);
+    border-bottom: 1px solid rgba(33,32,28,0.1);
     display: flex;
     gap: 12px;
   }
@@ -943,15 +1116,13 @@
 
   .critical-list li::before {
     content: "→";
-    color: var(--mute);
-    font-weight: 500;
+    color: var(--ink);
+    font-weight: 700;
     flex-shrink: 0;
   }
 
   /* ============ ASSETS ============ */
-  .asset-section {
-    margin-bottom: 32px;
-  }
+  .asset-section { margin-bottom: 32px; }
 
   .asset-section-head {
     display: flex;
@@ -963,16 +1134,16 @@
   }
 
   .asset-section-title {
-    font-family: var(--serif);
+    font-family: var(--display);
+    font-weight: 800;
     font-size: 22px;
-    font-weight: 400;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    letter-spacing: -0.01em;
   }
 
   .asset-section-desc {
-    font-size: 12px;
-    color: var(--mute);
-    font-style: italic;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
   }
 
   .asset-table {
@@ -985,15 +1156,16 @@
   }
 
   .asset-table th {
-    background: var(--bg-warm);
+    background: var(--bg-soft);
     text-align: left;
     padding: 12px 20px;
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink);
     font-weight: 500;
-    border-bottom: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line);
   }
 
   .asset-table td {
@@ -1004,19 +1176,13 @@
   }
 
   .asset-table tr:last-child td { border-bottom: none; }
+  .asset-table tr:hover { background: var(--blue-50); }
 
-  .asset-name {
-    font-weight: 500;
-  }
+  .asset-name { font-weight: 600; }
 
   .asset-owner {
-    color: var(--mute);
-    font-family: var(--serif);
-    font-style: italic;
-  }
-
-  .asset-feeds {
-    color: var(--ink-soft);
+    color: var(--ink-2);
+    font-family: var(--mono);
     font-size: 12px;
   }
 
@@ -1035,45 +1201,49 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    min-height: 160px;
+    min-height: 170px;
     text-decoration: none;
     color: var(--ink);
     transition: all 0.2s ease;
+    position: relative;
   }
 
   .ref-card:hover {
     border-color: var(--ink);
-    transform: translateY(-2px);
+    background: var(--blue-50);
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--ink);
   }
 
   .ref-card-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--mute);
+    width: 32px;
+    height: 32px;
+    color: var(--ink-2);
   }
 
   .ref-card-title {
-    font-family: var(--serif);
+    font-family: var(--display);
+    font-weight: 800;
     font-size: 20px;
-    line-height: 1.2;
-    font-variation-settings: 'opsz' 36, 'SOFT' 40;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .ref-card-desc {
     font-size: 13px;
-    color: var(--mute);
+    color: var(--ink-2);
     line-height: 1.5;
     flex: 1;
   }
 
   .ref-card-status {
+    font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mute);
-    font-weight: 500;
-    padding: 5px 10px;
-    background: var(--bg-warm);
+    color: var(--ink-2);
+    padding: 4px 10px;
+    background: var(--bg-soft);
     border-radius: 100px;
     align-self: flex-start;
   }
@@ -1088,24 +1258,25 @@
     padding: 32px 48px;
     border-top: 1px solid var(--line);
     text-align: center;
+    font-family: var(--mono);
     font-size: 11px;
-    color: var(--mute);
-    letter-spacing: 0.05em;
+    color: var(--ink-2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     background: var(--bg);
-  }
-
-  footer .ig-symbol {
-    font-family: var(--serif);
-    font-style: italic;
-    margin: 0 6px;
   }
 
   /* Responsive */
   @media (max-width: 900px) {
-    .header-inner { grid-template-columns: 1fr; gap: 24px; }
-    .color-strip { grid-template-columns: repeat(2, 1fr); }
+    .header { padding: 40px 28px 0; }
+    main { padding: 40px 28px 60px; }
+    .tab-nav { padding: 0 28px; }
+    .header-meta { gap: 24px; }
+    h1 { font-size: 56px; }
+    h2 { font-size: 36px; }
+    .color-strip { grid-template-columns: repeat(2, 1fr); margin: 0 -28px; }
     .color-cell:nth-child(2) { border-right: none; }
-    .color-cell:nth-child(1), .color-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .color-cell:nth-child(1), .color-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
     .overview-grid { grid-template-columns: 1fr; }
     .strategy-grid { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }
@@ -1113,28 +1284,30 @@
     .offer-tiers { grid-template-columns: 1fr; }
     .ref-grid { grid-template-columns: 1fr; }
     .resources { grid-template-columns: repeat(2, 1fr); }
-    main { padding: 40px 28px 60px; }
-    .header { padding: 40px 28px 24px; }
-    .tab-nav { padding: 0 28px; }
-    .phase-row { grid-template-columns: 100px 1fr; }
-    .phase-label-col { padding-right: 12px; }
-    .phase-bar { padding: 16px 18px; }
+    .phase-row { grid-template-columns: 110px 1fr; }
+    .phase-label-col { padding-right: 14px; }
+    .phase-bar { padding: 18px 20px; }
   }
 </style>
 </head>
 
 <body>
 
-<!-- Top banner -->
-<div class="top-banner">Master Campaign Brief · Internal · Cloud Nine</div>
+<!-- Top bar -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span class="cloud-mark">CloudNINE</span>
+    <span>The Grounding Series</span>
+  </div>
+  <div>Master Brief · Internal</div>
+</div>
 
 <!-- Header -->
 <header class="header">
   <div class="header-inner">
-    <div class="header-left">
-      <div class="eyebrow">The Grounding Series · Chapter 01</div>
-      <h1>Ground &mdash; <em>Playground</em></h1>
-    </div>
+    <div class="chapter-mark">Chapter · Playground</div>
+    <h1><span class="play">Play</span><span class="ground">GROUND</span></h1>
+
     <div class="header-meta">
       <div class="meta-item">
         <div class="meta-label">Launch</div>
@@ -1144,37 +1317,45 @@
         <div class="meta-label">Owner</div>
         <div class="meta-value">Marcella</div>
       </div>
+      <div class="meta-item">
+        <div class="meta-label">Status</div>
+        <div class="meta-value">In Production</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Goal</div>
+        <div class="meta-value">Retention</div>
+      </div>
     </div>
   </div>
 
   <!-- Color strip -->
-  <div class="color-strip" style="max-width: 1200px; margin: 32px auto 0;">
+  <div class="color-strip">
     <div class="color-cell">
       <div class="swatch rose"></div>
-      <div class="color-info">
+      <div>
         <div class="color-name">Mesa Rose</div>
-        <div class="color-code">01</div>
+        <div class="color-pantone">17-1609 TCX</div>
       </div>
     </div>
     <div class="color-cell">
       <div class="swatch riv"></div>
-      <div class="color-info">
+      <div>
         <div class="color-name">Riviera</div>
-        <div class="color-code">02</div>
+        <div class="color-pantone">17-4027 TCX</div>
       </div>
     </div>
     <div class="color-cell">
       <div class="swatch shale"></div>
-      <div class="color-info">
+      <div>
         <div class="color-name">Shale</div>
-        <div class="color-code">03</div>
+        <div class="color-pantone">19-3903 TCX</div>
       </div>
     </div>
     <div class="color-cell">
       <div class="swatch olive"></div>
-      <div class="color-info">
+      <div>
         <div class="color-name">Pale Olive</div>
-        <div class="color-code">04</div>
+        <div class="color-pantone">15-0522 TCX</div>
       </div>
     </div>
   </div>
@@ -1190,55 +1371,55 @@
     <button class="tab-btn" data-tab="offer"><span class="tab-num">05</span>Offer</button>
     <button class="tab-btn" data-tab="channels"><span class="tab-num">06</span>Channels</button>
     <button class="tab-btn" data-tab="timeline"><span class="tab-num">07</span>Timeline</button>
-    <button class="tab-btn" data-tab="assets"><span class="tab-num">08</span>Asset Matrix</button>
+    <button class="tab-btn" data-tab="assets"><span class="tab-num">08</span>Assets</button>
     <button class="tab-btn" data-tab="references"><span class="tab-num">09</span>References</button>
   </nav>
 </div>
 
 <main>
 
-  <!-- ============ OVERVIEW ============ -->
+  <!-- OVERVIEW -->
   <section class="panel active" id="overview">
     <div class="section-head">
-      <div class="section-eyebrow">01 · Overview</div>
-      <h2>The <em>concept</em></h2>
+      <div class="section-num">01 / Overview</div>
+      <h2>The concept</h2>
     </div>
 
     <div class="overview-grid">
       <div class="concept-block">
-        <p>Grounding is the product universe, but the hoodie stays the constant. Every color drop is a new chapter and a new lens on what "grounded" means. Same word, new angle, same hoodie.</p>
-        <p>Strategically, this compounds one anchor keyword ("Grounding") for SEO, Pinterest, and brand recall, while training the community to read the brand as a recurring system instead of one-off restocks. Easter eggs across chapters &mdash; recurring motifs, callbacks in captions, color carryovers &mdash; reward the people who pay attention.</p>
-        <p><em>Playground</em> is about reconnecting with the inner child and the feelings a playground brings, no matter your age. A ground to play on. A ground to play with.</p>
+        <p>Grounding is supposed to become its own product universe. Whenever we drop a new color, it introduces a new chapter and a new lens on what "grounded" means. Same word, new angle, same hoodie.</p>
+        <p>Strategically, this compounds one anchor keyword ("Grounding") for SEO, Pinterest, and brand recall, while training the community to read the brand as a recurring system instead of one-off restocks. Easter eggs across chapters, recurring motifs, callbacks in captions, color carryovers, reward the people who pay attention.</p>
+        <p>We start with <strong>Playground</strong> — about reconnecting with the inner child and the feelings a playground brings, no matter your age. A ground to play on. A ground to play with.</p>
       </div>
 
       <div class="product-card">
         <h4>Main Product</h4>
         <div class="product-name">Grounding Hoodie</div>
         <p>Not a new product, just new colors. Four new colorways: Mesa Rose, Riviera, Shale, Pale Olive.</p>
-        <a href="https://www.cloudnineclothing.ca/products/grounding-hoodie" target="_blank" class="product-link">View product page →</a>
+        <a href="https://www.cloudnineclothing.ca/products/grounding-hoodie" target="_blank" class="product-link">View Product →</a>
       </div>
     </div>
 
-    <div style="margin-top: 56px;">
+    <div style="margin-top: 48px;">
       <h4>Quick Links</h4>
       <div class="resources">
         <a href="#" class="resource">
-          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           <div class="resource-title">Moodboard</div>
           <div class="resource-status">To be linked</div>
         </a>
         <a href="#" class="resource">
-          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <div class="resource-title">Photographer Deck</div>
           <div class="resource-status">To be linked</div>
         </a>
         <a href="#" class="resource">
-          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/></svg>
+          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/></svg>
           <div class="resource-title">Color References</div>
           <div class="resource-status">To be linked</div>
         </a>
         <a href="#" class="resource">
-          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="resource-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <div class="resource-title">ClickUp Timeline</div>
           <div class="resource-status">To be linked</div>
         </a>
@@ -1246,23 +1427,23 @@
     </div>
   </section>
 
-  <!-- ============ STRATEGY ============ -->
+  <!-- STRATEGY -->
   <section class="panel" id="strategy">
     <div class="section-head">
-      <div class="section-eyebrow">02 · Campaign Strategy</div>
-      <h2>The <em>objective</em></h2>
+      <div class="section-num">02 / Strategy</div>
+      <h2>The objective</h2>
     </div>
 
     <div class="objective-card">
       <h4>Campaign Objective</h4>
-      <p>Reintroduce the Grounding Hoodie through four new colorways and open the Grounding Series &mdash; establishing color drops as chapters with meaning, not restocks.</p>
+      <p>Reintroduce the Grounding Hoodie through four new colorways and open the Grounding Series — establishing color drops as chapters with meaning, not restocks.</p>
     </div>
 
     <div class="strategy-grid">
-      <div class="card">
+      <div class="card accent">
         <h4>Campaign Goal</h4>
-        <h3 style="margin-top: 4px;">Retention</h3>
-        <p style="font-size: 14px; color: var(--mute); margin-top: 8px;">NCAC is strong. Retention is the gap. This drop is built to bring the existing community back.</p>
+        <div class="retention-badge">Retention</div>
+        <p style="font-size: 14px; color: var(--ink-2); margin-top: 8px;">NCAC is strong. Retention is the gap. This drop is built to bring the existing community back.</p>
       </div>
 
       <div class="card">
@@ -1280,22 +1461,22 @@
           <li>Grounding becomes a signature product, not a restocked SKU</li>
           <li>Launch the chapter system so the community starts reading the brand</li>
           <li>Build Pinterest/SEO equity around "Grounding"</li>
-          <li>Add visual depth to the brand world &mdash; playground assets feed for months</li>
+          <li>Add visual depth to the brand world — playground assets feed for months</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ AUDIENCE ============ -->
+  <!-- AUDIENCE -->
   <section class="panel" id="audience">
     <div class="section-head">
-      <div class="section-eyebrow">03 · Audience</div>
-      <h2>Who this is <em>for</em></h2>
+      <div class="section-num">03 / Audience</div>
+      <h2>Who this is for</h2>
     </div>
 
     <div class="audience-grid">
       <div class="audience-card primary">
-        <div class="audience-tier">Primary</div>
+        <div class="audience-tier"><span>Primary</span><span>★</span></div>
         <div class="audience-body">
           <div class="audience-title">Existing Cloud Nine community</div>
           <ul class="audience-traits">
@@ -1304,40 +1485,40 @@
             <li>Already know the brand</li>
           </ul>
           <div class="persona">
-            <div class="persona-label">Persona &mdash; Mara, 23</div>
+            <div class="persona-label">Persona — Mara, 23</div>
             <div class="persona-text">Has owned the Grounding Hoodie for a year, lives in it, follows every post on IG, member of the Discord. Was waiting for new colors.</div>
           </div>
         </div>
       </div>
 
       <div class="audience-card secondary">
-        <div class="audience-tier">Secondary</div>
+        <div class="audience-tier"><span>Secondary</span><span>✦</span></div>
         <div class="audience-body">
-          <div class="audience-title">Gen Z (18&ndash;24), value-driven, hyper-online</div>
+          <div class="audience-title">Gen Z (18–24), value-driven, hyper-online</div>
           <ul class="audience-traits">
             <li>College students, young creatives</li>
             <li>(Self-)diagnosed ADHD or anxiety</li>
             <li>Want to feel they "discover" products</li>
-            <li>Resonate with inner-child/playful nostalgia</li>
+            <li>Resonate with inner-child / nostalgia</li>
           </ul>
           <div class="persona">
-            <div class="persona-label">Persona &mdash; Lia, 21</div>
+            <div class="persona-label">Persona — Lia, 21</div>
             <div class="persona-text">College student, self-diagnosed anxiety. Finds brands through TikTok and Pinterest mood boards. Already nostalgic for early-2000s childhood.</div>
           </div>
         </div>
       </div>
 
       <div class="audience-card tertiary">
-        <div class="audience-tier">Tertiary</div>
+        <div class="audience-tier"><span>Tertiary</span><span>✧</span></div>
         <div class="audience-body">
-          <div class="audience-title">Cold &mdash; new customers</div>
+          <div class="audience-title">Cold — new customers</div>
           <ul class="audience-traits">
             <li>Reached via Meta + Pinterest</li>
             <li>Drawn to inner-child, sensory-comfort angle</li>
             <li>Entry point: the world, not the product</li>
           </ul>
           <div class="persona">
-            <div class="persona-label">Persona &mdash; Sam, 31</div>
+            <div class="persona-label">Persona — Sam, 31</div>
             <div class="persona-text">Diagnosed with ADHD at 28, works in tech, knows what regulates them. Wants something that looks adult but feels like comfort.</div>
           </div>
         </div>
@@ -1345,11 +1526,11 @@
     </div>
   </section>
 
-  <!-- ============ CREATIVE ============ -->
+  <!-- CREATIVE -->
   <section class="panel" id="creative">
     <div class="section-head">
-      <div class="section-eyebrow">04 · Creative Direction</div>
-      <h2>The <em>story</em></h2>
+      <div class="section-num">04 / Creative Direction</div>
+      <h2>The story</h2>
     </div>
 
     <div class="creative-story">
@@ -1370,9 +1551,9 @@
       <div class="kw-card">
         <h4>Tone of Voice</h4>
         <div class="kw-list">
-          <span class="kw">Gentle</span>
-          <span class="kw">Honest</span>
-          <span class="kw">Still</span>
+          <span class="kw tone">Gentle</span>
+          <span class="kw tone">Honest</span>
+          <span class="kw tone">Still</span>
         </div>
       </div>
 
@@ -1402,32 +1583,35 @@
     </div>
   </section>
 
-  <!-- ============ OFFER ============ -->
+  <!-- OFFER -->
   <section class="panel" id="offer">
     <div class="section-head">
-      <div class="section-eyebrow">05 · Campaign Offer</div>
-      <h2>Access, not <em>discount</em></h2>
+      <div class="section-num">05 / Campaign Offer</div>
+      <h2>Access, not discount</h2>
     </div>
 
-    <p style="margin-bottom: 28px; font-size: 15px; max-width: 700px;">No public discount. No price change on the new colors. The offer is access &mdash; with community-only pricing for insiders.</p>
+    <div class="offer-intro">
+      <h4>The principle</h4>
+      <p>No public discount. No price change on the new colors. Community-only pricing for insiders. Access is the offer.</p>
+    </div>
 
     <div class="offer-tiers">
       <div class="tier t1">
-        <div class="tier-num">Tier 1 · Insiders</div>
+        <div class="tier-num">Tier 01 · Insiders</div>
         <div class="tier-name">Discord Community</div>
         <div class="tier-desc">Members get an announcement days before, then an exclusive discount code valid 48h before public launch. Reactivates Discord engagement.</div>
-        <div class="tier-perk">48h Early Access · Discount Code</div>
+        <div class="tier-perk">48h Early + Discount Code</div>
       </div>
 
       <div class="tier t2">
-        <div class="tier-num">Tier 2 · Subscribers</div>
+        <div class="tier-num">Tier 02 · Subscribers</div>
         <div class="tier-name">Newsletter Sign-ups</div>
         <div class="tier-desc">Email subscribers get a calendar invite for May 28 a week before. 10% off for the launch window.</div>
-        <div class="tier-perk">Calendar Invite · 10% Off</div>
+        <div class="tier-perk">Calendar Invite + 10% Off</div>
       </div>
 
       <div class="tier t3">
-        <div class="tier-num">Tier 3 · Public</div>
+        <div class="tier-num">Tier 03 · Public</div>
         <div class="tier-name">Public Launch</div>
         <div class="tier-desc">May 28. Open to all. Full price. The chapter system itself creates the pull.</div>
         <div class="tier-perk">Open Shop · Full Price</div>
@@ -1436,15 +1620,15 @@
 
     <div class="offer-note">
       <h5>Why this works</h5>
-      <p>No public discount protects margin and avoids training the community to wait for sales. The Discord tier reactivates an under-performing channel by giving it the most valuable access. Every Tier 2 + 3 purchase auto-enters "The Cloud" &mdash; meaning next chapter, they're in Tier 1.</p>
+      <p>No public discount protects margin and avoids training the community to wait for sales. The Discord tier reactivates an under-performing channel by giving it the most valuable access. Every Tier 2 + 3 purchase auto-enters "The Cloud" — meaning next chapter, they're in Tier 1.</p>
     </div>
   </section>
 
-  <!-- ============ CHANNELS ============ -->
+  <!-- CHANNELS -->
   <section class="panel" id="channels">
     <div class="section-head">
-      <div class="section-eyebrow">06 · Channel Strategy</div>
-      <h2>Each channel, one <em>job</em></h2>
+      <div class="section-num">06 / Channel Strategy</div>
+      <h2>Each channel, one job</h2>
     </div>
 
     <table class="channels-table">
@@ -1461,7 +1645,7 @@
         <tr><td class="ch-name">Instagram (organic)</td><td>Build the chapter world for existing followers</td><td class="ch-lead">Jea</td></tr>
         <tr><td class="ch-name">TikTok (organic)</td><td>Inner-child storytelling, test hooks</td><td class="ch-lead">Gloria &amp; Juliana</td></tr>
         <tr><td class="ch-name">Pinterest</td><td>Long-tail traffic + SEO for "Grounding"</td><td class="ch-lead">Denzel</td></tr>
-        <tr><td class="ch-name">Blog / SEO</td><td>Pre-launch blogs + rank for grounding &amp; sensory keywords</td><td class="ch-lead">Melody &amp; Bisesh</td></tr>
+        <tr><td class="ch-name">Blog / SEO</td><td>Pre-launch blogs + rank for sensory keywords</td><td class="ch-lead">Melody &amp; Bisesh</td></tr>
         <tr><td class="ch-name">Meta (paid)</td><td>New customer acquisition</td><td class="ch-lead">Beau</td></tr>
         <tr><td class="ch-name">UGC</td><td>Asset volume for paid + organic</td><td class="ch-lead">Matej</td></tr>
         <tr><td class="ch-name">Influencer seeding</td><td>Reach into ND + community-adjacent creators</td><td class="ch-lead">Jesselle</td></tr>
@@ -1471,11 +1655,11 @@
     </table>
   </section>
 
-  <!-- ============ TIMELINE ============ -->
+  <!-- TIMELINE -->
   <section class="panel" id="timeline">
     <div class="section-head">
-      <div class="section-eyebrow">07 · Timeline</div>
-      <h2>The <em>shape</em> of the campaign</h2>
+      <div class="section-num">07 / Timeline</div>
+      <h2>The shape of the campaign</h2>
     </div>
 
     <div class="timeline-phases">
@@ -1492,7 +1676,7 @@
             <span class="move-tag">Blog post live</span>
             <span class="move-tag">IG mood posts</span>
             <span class="move-tag">Discord teaser</span>
-            <span class="move-tag">Email "save the date"</span>
+            <span class="move-tag">"Save the date" email</span>
             <span class="move-tag">Influencers receive</span>
           </div>
         </div>
@@ -1583,11 +1767,11 @@
       <div class="date-card">
         <div class="date-day">May 22</div>
         <div class="date-month">Reveal begins</div>
-        <div class="date-event">Hero assets land publicly. Concept revealed.</div>
+        <div class="date-event">Hero assets land publicly.</div>
       </div>
       <div class="date-card">
         <div class="date-day">May 26</div>
-        <div class="date-month">Discord early access</div>
+        <div class="date-month">Discord access</div>
         <div class="date-event">Community shops first. Discount code live.</div>
       </div>
       <div class="date-card peak">
@@ -1598,33 +1782,33 @@
       <div class="date-card">
         <div class="date-day">Jun 4</div>
         <div class="date-month">7-day review</div>
-        <div class="date-event">Meta scale review. Sustain phase deepens.</div>
+        <div class="date-event">Meta scale review.</div>
       </div>
       <div class="date-card">
         <div class="date-day">Jun 15</div>
         <div class="date-month">Retention phase</div>
-        <div class="date-event">Debrief written. Chapter 02 prep begins.</div>
+        <div class="date-event">Debrief written. Chapter 02 prep.</div>
       </div>
     </div>
 
     <div class="critical">
       <div class="critical-title">Critical Path Dependencies</div>
       <ul class="critical-list">
-        <li>Photoshoot delivery unlocks every channel &mdash; slippage cascades</li>
-        <li>Pinterest needs lead time &mdash; Denzel pins color swatches and mood while waiting for hero assets</li>
-        <li>UGC briefs to Matej must already be in motion &mdash; 3-week lead is tight</li>
+        <li>Photoshoot delivery unlocks every channel — slippage cascades</li>
+        <li>Pinterest needs lead time — Denzel pins color swatches and mood while waiting for hero assets</li>
+        <li>UGC briefs to Matej must already be in motion — 3-week lead is tight</li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ ASSET MATRIX ============ -->
+  <!-- ASSETS -->
   <section class="panel" id="assets">
     <div class="section-head">
-      <div class="section-eyebrow">08 · Asset Matrix</div>
-      <h2>Production <em>visibility</em></h2>
+      <div class="section-num">08 / Asset Matrix</div>
+      <h2>Production visibility</h2>
     </div>
 
-    <p style="margin-bottom: 32px; font-size: 14px; color: var(--mute); max-width: 700px;">System of interconnected assets. Everyone sees what feeds what. Master folder in Google Drive, structured by chapter then by asset type.</p>
+    <p style="margin-bottom: 32px; font-size: 14px; color: var(--ink-2); max-width: 700px;">System of interconnected assets. Everyone sees what feeds what. Master folder in Google Drive, structured by chapter then by asset type.</p>
 
     <div class="asset-section">
       <div class="asset-section-head">
@@ -1634,10 +1818,10 @@
       <table class="asset-table">
         <thead><tr><th>Asset</th><th>Owner</th><th>Feeds</th></tr></thead>
         <tbody>
-          <tr><td class="asset-name">Photoshoot hero images</td><td class="asset-owner">Photographer + Marcella</td><td class="asset-feeds">Website, email, paid, organic, Pinterest</td></tr>
-          <tr><td class="asset-name">Photoshoot lifestyle / secondary</td><td class="asset-owner">Photographer + Marcella</td><td class="asset-feeds">Organic IG, Pinterest, blog</td></tr>
-          <tr><td class="asset-name">Chapter 01 brand story / copy doc</td><td class="asset-owner">Marcella</td><td class="asset-feeds">All channels</td></tr>
-          <tr><td class="asset-name">Digital color swatches</td><td class="asset-owner">Idham</td><td class="asset-feeds">Website, email, IG, Pinterest</td></tr>
+          <tr><td class="asset-name">Photoshoot hero images</td><td class="asset-owner">Photographer + Marcella</td><td>Website, email, paid, organic, Pinterest</td></tr>
+          <tr><td class="asset-name">Photoshoot lifestyle / secondary</td><td class="asset-owner">Photographer + Marcella</td><td>Organic IG, Pinterest, blog</td></tr>
+          <tr><td class="asset-name">Chapter 01 brand story / copy</td><td class="asset-owner">Marcella</td><td>All channels</td></tr>
+          <tr><td class="asset-name">Digital color swatches</td><td class="asset-owner">Idham</td><td>Website, email, IG, Pinterest</td></tr>
         </tbody>
       </table>
     </div>
@@ -1650,10 +1834,10 @@
       <table class="asset-table">
         <thead><tr><th>Asset</th><th>Owner</th><th>Channel</th></tr></thead>
         <tbody>
-          <tr><td class="asset-name">Meta static ads (3–5 variations)</td><td class="asset-owner">Idham</td><td class="asset-feeds">Meta</td></tr>
-          <tr><td class="asset-name">UGC video ads (5–8 variations)</td><td class="asset-owner">Matej</td><td class="asset-feeds">Meta, TikTok</td></tr>
-          <tr><td class="asset-name">Landing page / product page</td><td class="asset-owner">Anagh</td><td class="asset-feeds">Meta, Pinterest, email</td></tr>
-          <tr><td class="asset-name">Retargeting creatives</td><td class="asset-owner">Idham + Matej</td><td class="asset-feeds">Meta</td></tr>
+          <tr><td class="asset-name">Meta static ads (3–5 variations)</td><td class="asset-owner">Idham</td><td>Meta</td></tr>
+          <tr><td class="asset-name">UGC video ads (5–8 variations)</td><td class="asset-owner">Matej</td><td>Meta, TikTok</td></tr>
+          <tr><td class="asset-name">Landing page / product page</td><td class="asset-owner">Anagh</td><td>Meta, Pinterest, email</td></tr>
+          <tr><td class="asset-name">Retargeting creatives</td><td class="asset-owner">Idham + Matej</td><td>Meta</td></tr>
         </tbody>
       </table>
     </div>
@@ -1666,12 +1850,12 @@
       <table class="asset-table">
         <thead><tr><th>Asset</th><th>Owner</th><th>Channel</th></tr></thead>
         <tbody>
-          <tr><td class="asset-name">Feed posts (carousels, stills, reels)</td><td class="asset-owner">Jea</td><td class="asset-feeds">Instagram</td></tr>
-          <tr><td class="asset-name">Stories (BTS, countdown, polls, reposts)</td><td class="asset-owner">Jea</td><td class="asset-feeds">Instagram</td></tr>
-          <tr><td class="asset-name">TikTok content (inner-child angles, hook tests)</td><td class="asset-owner">Gloria + Juliana</td><td class="asset-feeds">TikTok</td></tr>
-          <tr><td class="asset-name">Pinterest pins (vertical, keyword-driven)</td><td class="asset-owner">Denzel</td><td class="asset-feeds">Pinterest</td></tr>
-          <tr><td class="asset-name">Blog post — Chapter 01 essay</td><td class="asset-owner">Melody + Bisesh</td><td class="asset-feeds">Website, Pinterest</td></tr>
-          <tr><td class="asset-name">Discord visuals (chapter reveal, polls)</td><td class="asset-owner">Idham + Maya</td><td class="asset-feeds">Discord</td></tr>
+          <tr><td class="asset-name">Feed posts (carousels, stills, reels)</td><td class="asset-owner">Jea</td><td>Instagram</td></tr>
+          <tr><td class="asset-name">Stories (BTS, countdown, polls)</td><td class="asset-owner">Jea</td><td>Instagram</td></tr>
+          <tr><td class="asset-name">TikTok content (inner-child angles)</td><td class="asset-owner">Gloria + Juliana</td><td>TikTok</td></tr>
+          <tr><td class="asset-name">Pinterest pins (vertical, keyword-driven)</td><td class="asset-owner">Denzel</td><td>Pinterest</td></tr>
+          <tr><td class="asset-name">Blog post — Chapter 01 essay</td><td class="asset-owner">Melody + Bisesh</td><td>Website, Pinterest</td></tr>
+          <tr><td class="asset-name">Discord visuals (chapter reveal, polls)</td><td class="asset-owner">Idham + Maya</td><td>Discord</td></tr>
         </tbody>
       </table>
     </div>
@@ -1684,66 +1868,66 @@
       <table class="asset-table">
         <thead><tr><th>Asset</th><th>Owner</th><th>Channel</th></tr></thead>
         <tbody>
-          <tr><td class="asset-name">Pre-launch tease email</td><td class="asset-owner">Aidan</td><td class="asset-feeds">Email</td></tr>
-          <tr><td class="asset-name">Calendar invite (add-to-calendar)</td><td class="asset-owner">Aidan</td><td class="asset-feeds">Email</td></tr>
-          <tr><td class="asset-name">Launch day email</td><td class="asset-owner">Aidan</td><td class="asset-feeds">Email</td></tr>
-          <tr><td class="asset-name">48h follow-up email</td><td class="asset-owner">Aidan</td><td class="asset-feeds">Email</td></tr>
-          <tr><td class="asset-name">Discord launch + discount code announcement</td><td class="asset-owner">Maya</td><td class="asset-feeds">Discord</td></tr>
-          <tr><td class="asset-name">Post-purchase email (chapter welcome)</td><td class="asset-owner">Aidan</td><td class="asset-feeds">Email</td></tr>
+          <tr><td class="asset-name">Pre-launch tease email</td><td class="asset-owner">Aidan</td><td>Email</td></tr>
+          <tr><td class="asset-name">Calendar invite (add-to-calendar)</td><td class="asset-owner">Aidan</td><td>Email</td></tr>
+          <tr><td class="asset-name">Launch day email</td><td class="asset-owner">Aidan</td><td>Email</td></tr>
+          <tr><td class="asset-name">48h follow-up email</td><td class="asset-owner">Aidan</td><td>Email</td></tr>
+          <tr><td class="asset-name">Discord launch + discount</td><td class="asset-owner">Maya</td><td>Discord</td></tr>
+          <tr><td class="asset-name">Post-purchase email (chapter welcome)</td><td class="asset-owner">Aidan</td><td>Email</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- ============ REFERENCES ============ -->
+  <!-- REFERENCES -->
   <section class="panel" id="references">
     <div class="section-head">
-      <div class="section-eyebrow">09 · References &amp; Moodboards</div>
-      <h2>The <em>visual</em> world</h2>
+      <div class="section-num">09 / References &amp; Moodboards</div>
+      <h2>The visual world</h2>
     </div>
 
-    <p style="margin-bottom: 32px; font-size: 14px; color: var(--mute); max-width: 700px;">All visual references, decks, and shoot direction materials live here. Update links as they become available.</p>
+    <p style="margin-bottom: 32px; font-size: 14px; color: var(--ink-2); max-width: 700px;">All visual references, decks, and shoot direction materials live here. Update links as they become available.</p>
 
     <div class="ref-grid">
       <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         <div class="ref-card-title">Campaign Moodboard</div>
         <div class="ref-card-desc">Visual references, color palette logic, mood. The playground world.</div>
         <span class="ref-card-status">To be linked</span>
       </a>
 
       <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <div class="ref-card-title">Brand Guidelines</div>
+        <div class="ref-card-desc">Logo, colors, typography, iconography, photography style.</div>
+        <span class="ref-card-status">To be linked</span>
+      </a>
+
+      <a href="#" class="ref-card">
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <div class="ref-card-title">Photographer Creative Deck</div>
         <div class="ref-card-desc">Shot list, mood board, lighting references, model archetypes, wardrobe.</div>
         <span class="ref-card-status">To be linked</span>
       </a>
 
       <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 1 8 0"/></svg>
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 1 8 0"/></svg>
         <div class="ref-card-title">Hoodie Color References</div>
-        <div class="ref-card-desc">Physical samples, Pantone match, digital swatches for all four colorways.</div>
+        <div class="ref-card-desc">Pantone match, physical lab dips, digital swatches for all four colorways.</div>
         <span class="ref-card-status">To be linked</span>
       </a>
 
       <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="9" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></svg>
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         <div class="ref-card-title">ClickUp Campaign Timeline</div>
-        <div class="ref-card-desc">Week-by-week tasks, owners, dependencies, approvals. The operational source of truth.</div>
+        <div class="ref-card-desc">Week-by-week tasks, owners, dependencies, approvals.</div>
         <span class="ref-card-status">To be linked</span>
       </a>
 
       <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         <div class="ref-card-title">Discord Drop Plan</div>
-        <div class="ref-card-desc">Maya's community engagement plan, reveal sequence, discount code logistics.</div>
-        <span class="ref-card-status">To be linked</span>
-      </a>
-
-      <a href="#" class="ref-card">
-        <svg class="ref-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-        <div class="ref-card-title">Email Sequence Outline</div>
-        <div class="ref-card-desc">Aidan's full sequence: tease → reveal → launch → follow-up → check-in.</div>
+        <div class="ref-card-desc">Community engagement plan, reveal sequence, discount logistics.</div>
         <span class="ref-card-status">To be linked</span>
       </a>
     </div>
@@ -1752,25 +1936,20 @@
 </main>
 
 <footer>
-  Cloud Nine <span class="ig-symbol">·</span> The Grounding Series <span class="ig-symbol">·</span> Chapter 01 — Playground <span class="ig-symbol">·</span> Master Brief
+  CloudNINE · The Grounding Series · Chapter 01 · Playground · Master Brief
 </footer>
 
 <script>
-  // Tab switching
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.panel');
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
-
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       panels.forEach(p => p.classList.remove('active'));
       document.getElementById(target).classList.add('active');
-
-      // Scroll to top of content area smoothly
       window.scrollTo({
         top: document.querySelector('.tab-nav-wrap').offsetTop,
         behavior: 'smooth'
